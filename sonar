@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "Sending report to SonarQube server..." >&2
+
+sonar-scanner \
+  -Dsonar.projectKey=sonarqube-sail \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_a6f733cf179ff5cc19a81814e99a41216aa3c80d
+
+echo "Opening SonarQube Gui..." >&2
+
+sensible-browser http://localhost:9000/dashboard?id=sonarqube-sail
